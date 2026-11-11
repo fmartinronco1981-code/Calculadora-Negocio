@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Calendar as CalendarIcon,
   Plus,
@@ -268,7 +268,6 @@ export default function App() {
       {/* MAIN CONTENT AREA */}
       <div className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-8">
         
-        {/* ... existing client view ... */}
         {!isAdminView && (
           <div className="space-y-8 animate-fadeIn">
             
@@ -591,20 +590,16 @@ export default function App() {
           </div>
         )}
 
-        {/* ======================================================== */}
-        {/* VISTA PROPIETARIO / ADMIN (GESTIÓN INTERNA Y TARIFAS)    */}
-        {/* ======================================================== */}
+        {/* VISTA PROPIETARIO / ADMIN */}
         {isAdminView && (
           <div className="space-y-8 animate-fadeIn">
             
-            {/* Header / Config Bar */}
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-800 pb-4">
               <div>
                 <h2 className="text-xl font-bold text-white">Panel de Control del Propietario</h2>
                 <p className="text-xs text-slate-400">Actualiza precios, bloquea fechas y gestiona cancelaciones.</p>
               </div>
 
-              {/* Price Modifier & Quick Actions */}
               <div className="flex items-center space-x-3 bg-slate-900 border border-slate-800 p-2 rounded-xl">
                 <DollarSign className="h-4 w-4 text-emerald-400" />
                 <span className="text-xs text-slate-300 font-semibold">Precio Noche:</span>
@@ -620,10 +615,8 @@ export default function App() {
               </div>
             </div>
 
-            {/* Block Dates Controls & Search */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               
-              {/* Form to Block Dates */}
               <form onSubmit={handleAddBlockDates} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4 shadow-lg md:col-span-1">
                 <h3 className="text-sm font-bold text-white flex items-center space-x-2">
                   <Lock className="h-4 w-4 text-amber-400" />
@@ -671,7 +664,6 @@ export default function App() {
                 </button>
               </form>
 
-              {/* Bookings Table with Actions */}
               <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl md:col-span-2 flex flex-col">
                 
                 <div className="p-4 border-b border-slate-800 flex items-center justify-between">
