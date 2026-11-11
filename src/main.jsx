@@ -6,3 +6,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <react.StrictMode>
     <App />
   </react.StrictMode>,
+)
